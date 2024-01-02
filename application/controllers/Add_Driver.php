@@ -108,6 +108,9 @@ function show_driver_id($id) {
 
 $data['single_driver'] = $this->staff->show_driver_id($id);
 $this->load->view('edit_driver', $data);
+// dsajskdjsldjasd
+// this is the future life yooo man
+// i don't regret thoo.......
 }
 
 function update_driver_id() {
