@@ -109,9 +109,7 @@ function show_driver_id($id) {
 $data['single_driver'] = $this->staff->show_driver_id($id);
 $this->load->view('edit_driver', $data);
 }
-// kajkjkjkjkjkjkj
-// jksdjksjljdkasjldskjaldjskd
-// this is my lifee
+
 function update_driver_id() {
     $id= $this->input->post('id');
     $last_work = $this->input->post('last_work');
