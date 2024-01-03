@@ -20,11 +20,13 @@ $persons = $this->session->userdata['logged_in']['persons_id'];
         <li class="active treeview">
          <li><a href="<?php echo base_url() . "Hamd" ?>"><i class="fa fa-circle-o text-yellow"></i> <span>Hamd</span></a></li>
          
+         
       
           
          <li class="treeview">
           <a href="#">
             <i class="fa fa-folder"></i> <span>System Essentials</span>
+
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -39,6 +41,29 @@ $persons = $this->session->userdata['logged_in']['persons_id'];
         </li>
        
         
+        
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Employees</span>
+
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              
+              
+                <li><a href="<?php echo base_url() . "Add_Employee/index" ?>"><i class="fa fa-circle-o text-aqua"></i> 1) Employees</a></li>
+                
+      
+          </ul>
+        </li>
+       
+        
+
+
+
+
       
         
         

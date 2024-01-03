@@ -7,7 +7,7 @@ $role = $this->session->userdata['logged_in']['role'];
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>All Users</title>
+  <title>All Users </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -68,7 +68,7 @@ $role = $this->session->userdata['logged_in']['role'];
  <div class="col-md-3">
           <div class="small-box bg-blue-gradient">
             <div class="inner">
-              <h2>All Users</h2>
+              <h2>All Users </h2>
             </div>
           </div>
  </div>

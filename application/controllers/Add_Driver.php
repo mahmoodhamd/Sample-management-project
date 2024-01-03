@@ -21,8 +21,8 @@ class Add_Driver extends CI_Controller {
 
 	public function index()
 	{
-               
-             
+    
+     
 		$this->load->view('insert_driver.php');
 	}
         

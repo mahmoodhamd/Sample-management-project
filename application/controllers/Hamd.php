@@ -19,9 +19,7 @@ public function __construct(){
     }
 function index() {
 
-         
-             
-              ;
+   
                 $this->load->view('hamd');
 
 }

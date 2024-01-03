@@ -54,3 +54,18 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['search'] = "search/index";
 
+// Employees Controller
+$route['employee']='Add_Employee/index';
+ 
+$route['employee/add']='Add_Employee/create';
+
+$route['employee/store']='Add_Employee/store';
+
+$route['employee/edit/(:any)']='Add_Employee/edit/$1';
+
+$route['employee/update/(:any)']='Add_Employee/update/$1';
+
+
+$route['employee/delete/(:any)']='Add_Employee/delete/$1';
+
+$route['employee/confirmdelete/(:any)']['DELETE']='Add_Employee/delete/$1';
