@@ -55,11 +55,21 @@ $route['translate_uri_dashes'] = FALSE;
 $route['search'] = "search/index";
 
 // Employees Controller
-$route['employee']='Add_Employee/index';
- 
+ $route['employee']='Add_Employee/index';
+
+
+
 $route['employee/add']='Add_Employee/create';
 
-$route['employee/store']='Add_Employee/store';
+// driver's route
+ $route['employee']='Add_Employee/createindex';
+
+
+ $route['employee/createadvance']='Add_Employee/createadvance';
+
+ $route['employee/driverstore']='Add_Employee/createstore';
+// ----------------
+ $route['employee/store']='Add_Employee/store';
 
 $route['employee/edit/(:any)']='Add_Employee/edit/$1';
 

@@ -1,4 +1,5 @@
-
+ 
+        
 <div class="container">
        
        <div class="row">
@@ -13,8 +14,14 @@
    
        </div>
        <div class="card-body">
-           <table class="table table-bordered">
-   
+       <div class="box-header">
+              <h4 class="box-title" align="center"><?php if ($this->session->flashdata('category_success')) { ?>
+                  <div id="message" style="color: #EC722E;display:none;" align="center"> <i class="fa fa-check" style="font-size: 15px;color: green;"></i><b> <?= $this->session->flashdata('category_success') ?></b> </div>
+    <?php } ?></h4>
+               
+               </div>
+       <table class="table table-bordered">
+             
               <thead>
                   <tr>
                    <th>ID</th>
@@ -41,15 +48,20 @@
                    <td>
                        <a href="<?= base_url('employee/edit/'.$row->id)  ?>" class="btn btn-success btn-sm">Edit</a>
                    </td>
+
+                   <td>
+                    <a href="<?php echo base_url('employee/createadvance');?>" class="btn btn-primary float-right">Advance </a>
+                   </td>
    
                    <td>
                        <a href="<?= base_url('employee/delete/'.$row->id) ?>" class="btn btn-danger btn-sm">Delete</a>
                    </td>
                     
-                   <!-- <td>
+                    <td>
                    <button type="button" class="btn btn-danger confirm-delete" value="<?= $row->id ?>">Confirm Delete</button>
                    </td>
-    -->
+                  
+
                                 
                    
                    
@@ -78,4 +90,15 @@
        
      </body>
    </html>
-   
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script>
+        //When the page has loaded.
+        $( document ).ready(function(){
+            <?php if ($this->session->flashdata('category_success')) { ?>
+            $('#message').fadeIn('slow', function(){
+               $('#message').delay(5000).fadeOut(); 
+            });
+            <?php $this->session->unset_userdata('category_success'); ?>
+        <?php } ?>
+        });
+        </script>

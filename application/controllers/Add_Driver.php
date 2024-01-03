@@ -23,7 +23,7 @@ class Add_Driver extends CI_Controller {
 	{
     
      
-		$this->load->view('insert_driver.php');
+		$this->load->view('insert_driver');
 	}
         
     public function show_driver()

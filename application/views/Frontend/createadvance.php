@@ -6,7 +6,7 @@
          <div class="card">
        <div class="card-header">
         <h5>
-           How to insert Employee data into database 
+           Insert the Driver information Please
          <a href="<?php echo base_url('employee');?>" class="btn btn-danger float-right">Back </a>
    
         </h5>
@@ -18,13 +18,13 @@
          
        <form action="<?php echo base_url('employee/store'); ?>" method="Post">
           <div class="form-group">
-              <label for="">First Name</label>
-              <input type="text" class="form-control"  name="first_name" >
+              <label for="">Driver Name</label>
+              <input type="text" class="form-control"  name="first_name">
               <small><?php echo form_error('first_name'); ?></small>
           </div>
    
           <div class="form-group">
-              <label for="">Last Name</label>
+              <label for="">Driver Last Name</label>
               <input type="text" name="last_name" class="form-control">
               <small><?php echo form_error('last_name'); ?></small>
           
@@ -32,14 +32,14 @@
    
           <div class="form-group">
               <label for="">Phone Number</label>
-              <input type="tel" name="phone" class="form-control">
+              <input type="text" name="phone" class="form-control">
               <small><?php echo form_error('phone'); ?></small>
           
            </div>
    
           <div class="form-group">
               <label for="">Email ID</label>
-              <input type="email" name="email" class="form-control">
+              <input type="text" name="email" class="form-control">
               <small><?php echo form_error('email'); ?></small>
          
            </div>
