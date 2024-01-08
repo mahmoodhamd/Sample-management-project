@@ -36,6 +36,17 @@
                    
                   </tr>
               </thead>
+
+             
+             
+
+               <?php foreach ($employee as $record): ?>
+               <?php echo json_encode($record, JSON_PRETTY_PRINT); ?>
+                <hr>
+                <?php endforeach; ?>
+            
+
+
               <tbody>
                <?php foreach($employee as $row) :?>
                 <tr>

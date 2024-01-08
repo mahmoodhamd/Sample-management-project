@@ -22,8 +22,12 @@ class EmployeeModel extends CI_Model
 
 public function insert_Employee($data){
 
-    return $this->db->insert('employee',$data);
+    $result= $this->db->insert('employee',$data);
+      // Update the JSON file after inserting into the database
+      $this->updateJsonFile();
 
+      return $result;
+  
 }
 
 public function editemployee($id){
@@ -33,16 +37,27 @@ public function editemployee($id){
 
 public function update( $data, $id)
 {
-return $this->db->update('employee' , $data,['id'=>$id]);
-    
+$result=$this->db->update('employee' , $data,['id'=>$id]);
+$this->updateJsonFile();
+  return $result;
 }
 
 public function delete($id)
 {
-    return $this->db->delete('employee', ['id' => $id]);
-    
+    $result=$this->db->delete('employee', ['id' => $id]);
+    $this->updateJsonFile();
+    return $result;
 }
 
+public function updateJsonFile() {
+    $data['employee'] = $this->getEmployee('employee');
+
+    // Convert data to JSON
+    $json_data = json_encode($data['employee'], JSON_PRETTY_PRINT);
+
+    // Save JSON data to a file
+    file_put_contents('employee_data.json', $json_data);
+}
 
 
 }

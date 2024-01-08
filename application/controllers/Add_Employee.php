@@ -10,8 +10,8 @@ class Add_Employee extends CI_Controller
 	  $this->load->view('template/header');
 	 
 	 $this->load->model('EmployeeModel');
-	 $data['employee']= $this->EmployeeModel->getEmployee('employee');
-      
+	$data= $this->updateJsonFile();
+
 	 $this->load->view('Frontend/employee',$data);
 	  $this->load->view('template/footer');
 	}
@@ -88,7 +88,8 @@ class Add_Employee extends CI_Controller
      $this->load->model('EmployeeModel');
      $data['employee']=$this->EmployeeModel->editemployee($id);
      $this->load->view('template/header');
-     
+     $this->updateJsonFile();
+
      
      $this->load->view('Frontend/edit',$data);
      $this->load->view('template/footer');
@@ -99,6 +100,8 @@ class Add_Employee extends CI_Controller
  {
      $this->load->model('EmployeeModel');
      $this->EmployeeModel->delete($id);
+// Update the JSON file after deleting from the database
+     $this->updateJsonFile();
      redirect(base_url('employee'));
  }
 
@@ -119,6 +122,9 @@ class Add_Employee extends CI_Controller
         ];
          $this->load->model("EmployeeModel");
          $this->EmployeeModel->update($data,$id);
+
+         $this->updateJsonFile();
+
          redirect(base_url('employee'));
     }
     else {
@@ -126,10 +132,24 @@ class Add_Employee extends CI_Controller
     }
     
     
+    // Update the JSON file after updating the database
     
     
         
    }
+
+
+   private function updateJsonFile(){
+    $this->load->model('EmployeeModel');
+    $data['employee'] = $this->EmployeeModel->getEmployee('employee');
+
+    // Convert data to JSON
+    $json_data = json_encode($data['employee'], JSON_PRETTY_PRINT);
+
+    // Save JSON data to a file
+    file_put_contents('employee_data.json', $json_data);
+}
+
 
 public function store(){
 
@@ -148,6 +168,13 @@ public function store(){
         'email'=>$this->input->post('email'),
         
     ];
+
+     // Encode data as JSON
+     $json_data = json_encode($data, JSON_PRETTY_PRINT);
+
+     // Save JSON data to a file (you may adjust the file path)
+     file_put_contents('employee_data.json', $json_data);
+
     $this->load->model('EmployeeModel','emp');
     $this->emp->insert_Employee($data);
     $this->session->set_flashdata('category_success', 'Driver Added Successfully');
