@@ -45,7 +45,7 @@ $this->updateJsonFile();
 public function delete($id)
 {
     $result=$this->db->delete('employee', ['id' => $id]);
-    $this->updateJsonFile();
+ $this->updateJsonFile();
     return $result;
 }
 

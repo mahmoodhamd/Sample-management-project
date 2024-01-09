@@ -10,7 +10,10 @@ class Add_Employee extends CI_Controller
 	  $this->load->view('template/header');
 	 
 	 $this->load->model('EmployeeModel');
-	$data= $this->updateJsonFile();
+     $data['employee']= $this->EmployeeModel->getEmployee('employee');
+    
+     $this->updateJsonFile();
+    
 
 	 $this->load->view('Frontend/employee',$data);
 	  $this->load->view('template/footer');
@@ -170,11 +173,11 @@ public function store(){
     ];
 
      // Encode data as JSON
-     $json_data = json_encode($data, JSON_PRETTY_PRINT);
+    //  $json_data = json_encode($data, JSON_PRETTY_PRINT);
 
-     // Save JSON data to a file (you may adjust the file path)
-     file_put_contents('employee_data.json', $json_data);
-
+    //  // Save JSON data to a file (you may adjust the file path)
+    //  file_put_contents('employee_data.json', $json_data);
+       $this->updateJsonFile();
     $this->load->model('EmployeeModel','emp');
     $this->emp->insert_Employee($data);
     $this->session->set_flashdata('category_success', 'Driver Added Successfully');
